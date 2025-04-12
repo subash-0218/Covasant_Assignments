@@ -45,9 +45,3 @@ def download_all(url):
 if __name__ == "__main__":   
     url = "https://www.google.co.in/?gws_rd=ssl"
     download_all(url)
-
-        
-    
-if __name__ == "__main__":   
-    url = "https://www.google.co.in/?gws_rd=ssl"
-    download_all(url)
