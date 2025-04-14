@@ -14,7 +14,6 @@ import os
 app = Flask(__name__)
 Notepad_path = 'data/notepad.txt'
 
-
 @app.route("/updatefortoday",methods=['GET','POST'])
 def update_for_today():
     if request.method =='POST':
@@ -34,8 +33,7 @@ def share_content():
     else:
         content = "Nothing to share"
     return render_template('shared.html',text=content) 
-    
-    
+        
 @app.route("/clearnotepadtxt", methods=['GET'])
 def clean_notepad():
     with open(Notepad_path,'w') as f:
