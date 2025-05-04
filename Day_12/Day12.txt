@@ -1,0 +1,38 @@
+######################DAY-12####################
+tpot/keras
+
+Question-26
+# HandsOn - Predict The Data Scientists Salary In India from kaggle use sklearn
+dataset: Predict-The-Data-Scientists-Salary-In-India_Train_Dataset.csv
+Data Features:
+    Name of the company (Encoded)
+    Years of experience(split to min and max experience)
+    Job description
+    Job designation
+    Job Type
+    Key skills
+    Location (needs LabelEncoded)
+    Salary in Rupees Lakhs(To be predicted)(needs LabelEncoded)
+    
+Find the best estimator among below 
+clf1 = DecisionTreeClassifier()
+clf2 = RandomForestClassifier(n_estimators=100)
+clf3 = ExtraTreesClassifier(n_estimators=100)
+clf4 =  AdaBoostClassifier(n_estimators=100)
+clf5 =  GradientBoostingClassifier(n_estimators=100)
+
+Question-27
+# HandsOn - Titanic survival prediction , from Kaggle
+https://www.kaggle.com/c/titanic/data
+           
+Understand data, download only train.csv and test.csv 
+
+Using Tpot, find the test score of best Estimator 
+Hint:
+The first and most important step in using TPOT on any data set 
+is to rename the target class/response variable to 'class'.
+
+At present, TPOT requires all the data to be in numerical format. 
+Categorical:  Name, Sex, Ticket, Cabin and Embarked.
+So convert categorical to number(which preprocessing?) and/or 
+discard high levels of categorical completely 
