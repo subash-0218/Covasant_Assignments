@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{{ theme }}">
+  <div class="theme-toggle-fixed">
+    {% if theme == "dark" %}
+      <a href="{{ url_for('switch_theme', mode='light') }}" title="Switch to light theme">🌓</a>
+    {% else %}
+      <a href="{{ url_for('switch_theme', mode='dark') }}" title="Switch to dark theme">🌗</a>
+    {% endif %}
+  </div>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <h2>Chats</h2>
+      <ul>
+        {% for chat in chats %}
+          <li><a href="{{ url_for('chat', chat_id=loop.index0) }}">{{ chat.title }}</a></li>
+        {% endfor %}
+      </ul>
+      <a href="{{ url_for('new_chat') }}" class="sidebar-btn">➕ New Chat</a>
+      <div class="bottom-actions">
+        <a href="{{ url_for('clear_all') }}" class="sidebar-btn">🗑️ Clear All</a>
+      </div>
+    </div>
+	
+    <div class="main">
+      <h1>Chatbot</h1>
+
+      <div class="chat-box">
+        {% if history %}
+          {% for msg in history %}
+            <div class="message {{ msg.role }}">
+              <strong>{{ "You" if msg.role == "user" else "Bot" }}:</strong> {{ msg.content }}
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>Start chatting by sending a message!</p>
+        {% endif %}
+      </div>
+
+      <form method="POST" class="input-area">
+        <input type="text" name="message" required placeholder="Type your message...">
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
