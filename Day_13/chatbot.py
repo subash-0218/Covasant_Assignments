@@ -12,6 +12,7 @@ import os
 import requests
 
 app = Flask(__name__)
+load_dotenv()
 app.secret_key = "your-secret-key"
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
 
